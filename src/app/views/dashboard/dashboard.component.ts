@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -19,8 +17,7 @@ export class DashboardComponent implements OnInit {
   public lineChart1Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChart1Options: any = {
     tooltips: {
-      enabled: false,
-      custom: CustomTooltips
+      enabled: false
     },
     maintainAspectRatio: false,
     scales: {
@@ -60,7 +57,6 @@ export class DashboardComponent implements OnInit {
   };
   public lineChart1Colours: Array<any> = [
     {
-      backgroundColor: getStyle('--primary'),
       borderColor: 'rgba(255,255,255,.55)'
     }
   ];
@@ -77,8 +73,7 @@ export class DashboardComponent implements OnInit {
   public lineChart2Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChart2Options: any = {
     tooltips: {
-      enabled: false,
-      custom: CustomTooltips
+      enabled: false
     },
     maintainAspectRatio: false,
     scales: {
@@ -119,7 +114,6 @@ export class DashboardComponent implements OnInit {
   };
   public lineChart2Colours: Array<any> = [
     { // grey
-      backgroundColor: getStyle('--info'),
       borderColor: 'rgba(255,255,255,.55)'
     }
   ];
@@ -137,8 +131,7 @@ export class DashboardComponent implements OnInit {
   public lineChart3Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChart3Options: any = {
     tooltips: {
-      enabled: false,
-      custom: CustomTooltips
+      enabled: false
     },
     maintainAspectRatio: false,
     scales: {
@@ -184,8 +177,7 @@ export class DashboardComponent implements OnInit {
   public barChart1Labels: Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
   public barChart1Options: any = {
     tooltips: {
-      enabled: false,
-      custom: CustomTooltips
+      enabled: false
     },
     maintainAspectRatio: false,
     scales: {
@@ -236,12 +228,11 @@ export class DashboardComponent implements OnInit {
   public mainChartOptions: any = {
     tooltips: {
       enabled: false,
-      custom: CustomTooltips,
       intersect: true,
       mode: 'index',
       position: 'nearest',
       callbacks: {
-        labelColor: function(tooltipItem, chart) {
+        labelColor: function (tooltipItem, chart) {
           return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor };
         }
       }
@@ -254,7 +245,7 @@ export class DashboardComponent implements OnInit {
           drawOnChartArea: false,
         },
         ticks: {
-          callback: function(value: any) {
+          callback: function (value: any) {
             return value.charAt(0);
           }
         }
@@ -285,18 +276,14 @@ export class DashboardComponent implements OnInit {
   };
   public mainChartColours: Array<any> = [
     { // brandInfo
-      backgroundColor: hexToRgba(getStyle('--info'), 10),
-      borderColor: getStyle('--info'),
       pointHoverBackgroundColor: '#fff'
     },
     { // brandSuccess
       backgroundColor: 'transparent',
-      borderColor: getStyle('--success'),
       pointHoverBackgroundColor: '#fff'
     },
     { // brandDanger
       backgroundColor: 'transparent',
-      borderColor: getStyle('--danger'),
       pointHoverBackgroundColor: '#fff',
       borderWidth: 1,
       borderDash: [8, 5]
@@ -335,8 +322,7 @@ export class DashboardComponent implements OnInit {
   public brandBoxChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public brandBoxChartOptions: any = {
     tooltips: {
-      enabled: false,
-      custom: CustomTooltips
+      enabled: false
     },
     responsive: true,
     maintainAspectRatio: false,
